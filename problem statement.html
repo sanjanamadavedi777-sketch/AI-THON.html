@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adaptive Learning Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      padding: 30px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+    input[type="file"], button, select {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+    }
+    .output, .dashboard {
+      background-color: #eef1f5;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    .question {
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-left: 4px solid #3498db;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>AI-Powered Adaptive LMS</h1>
+
+    <!-- 📄 File Upload Section -->
+    <h2>Upload Study Material (PDF or Text)</h2>
+    <input type="file" id="fileInput" accept=".pdf,.txt" />
+    <button onclick="processDocument()">📄 Process Document</button>
+
+    <!-- 📋 Auto Assessment -->
+    <h2>Generate Assessment</h2>
+    <select id="questionType">
+      <option value="mcq">Multiple Choice Questions (MCQ)</option>
+      <option value="truefalse">True/False</option>
+      <option value="shortanswer">Short Answer</option>
+    </select>
+    <button onclick="generateAssessment()">🧪 Generate Assessment</button>
+
+    <div class="output" id="assessmentOutput">
+      <!-- Questions will appear here -->
+    </div>
+
+    <!-- 📊 Dashboard -->
+    <h2>Performance Dashboard</h2>
+    <div class="dashboard">
+      <p>📚 Topics Covered: <strong>5</strong></p>
+      <p>✅ Completed Assessments: <strong>3</strong></p>
+      <p>📈 Average Score: <strong>82%</strong></p>
+      <p>📌 Recommended Topics: <strong>Recursion, Probability</strong></p>
+    </div>
+  </div>
+
+  <script>
+    function processDocument() {
+      alert("📄 Document processed successfully! (This is a placeholder)");
+      // Actual implementation would involve backend OCR/NLP
+    }
+
+    function generateAssessment() {
+      const type = document.getElementById("questionType").value;
+      const output = document.getElementById("assessmentOutput");
+
+      // Placeholder questions
+      output.innerHTML = "";
+
+      const sampleQuestions = {
+        mcq: [
+          "What is the time complexity of binary search?",
+          "Which language is primarily used for machine learning?"
+        ],
+        truefalse: [
+          "The Earth is flat. (True/False)",
+          "Python supports object-oriented programming. (True/False)"
+        ],
+        shortanswer: [
+          "Define the term 'Recursion'.",
+          "Explain the concept of Overfitting in Machine Learning."
+        ]
+      };
+
+      sampleQuestions[type].forEach((q, i) => {
+        output.innerHTML += <div class="question"><strong>Q${i+1}:</strong> ${q}</div>;
+      });
+    }
+  </script>
+
+</body>
+</html>
